@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>DevOps Dashboard</title>
+    <link rel="stylesheet"
+          href="{{ url_for('static', filename='style.css') }}">
+</head>
+
+<body>
+
+    <div class="navbar">
+        <h2>{{ app_name }}</h2>
+    </div>
+
+    <div class="container">
+
+        <h1>Multi-Container DevOps Project</h1>
+
+        <div class="card">
+            <h2>Total Visits</h2>
+            <div class="counter">{{ visits }}</div>
+        </div>
+
+        <div class="card">
+            <h2>Container Hostname</h2>
+            <p>{{ hostname }}</p>
+        </div>
+
+        <div class="card">
+            <h2>Current Time</h2>
+            <p>{{ time }}</p>
+        </div>
+
+        <div class="services">
+            <div class="service-box">Flask ✅</div>
+</html>

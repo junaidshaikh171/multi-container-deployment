@@ -1,0 +1,32 @@
+services:
+
+  flask-app:
+    build: .
+    container_name: flask-container
+
+    restart: unless-stopped
+
+    env_file:
+      - .env
+
+    depends_on:
+      - redis
+
+  redis:
+    image: redis:latest
+    container_name: redis-container
+
+    restart: unless-stopped
+
+  nginx:
+    image: nginx:latest
+    container_name: nginx-container
+
+    ports:
+      - "80:80"
+
+    volumes:
+      - ./nginx/default.conf:/etc/nginx/conf.d/default.conf
+
+    depends_on:
+      - flask-app
